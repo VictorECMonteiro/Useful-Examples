@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+      charset="UTF-8"
+    />
+    <title>Gerador de fatos de gatinhos para Bruna</title>
+    <!-- <script src="index.js"></script> -->
+
+    <style>@import url(https://db.onlinewebfonts.com/c/0f9c349da923afea31fae4db7b8094f0?family=Gotham+Black);
+
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            overflow-x: hidden;
+        }
+        header{
+            position: relative;
+            display: flex;
+            background-color: #F5E870;
+            width: 100%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+            
+        
+        }
+        header div{
+            
+            
+        }
+        header div p{
+            text-align: center;
+            font-size: 25px;
+            font-family: "Gotham Black";
+            
+        }
+        header div h1{
+            text-align: center;
+            color: #305DFF;
+            font-family: "Gotham Black";
+            padding-bottom: 30px;
+        }
+        
+        
+        
+        .custom-shape-divider-bottom-1725987139 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+        
+        .custom-shape-divider-bottom-1725987139 svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 100px;
+        }
+        
+        .custom-shape-divider-bottom-1725987139 .shape-fill {
+            fill: #F98BD3;
+        }
+        .botao{
+            display: flex;
+            background-color: #F98BD3;
+            height: 50vh;
+            text-align: center;
+            padding-top: 10vh;
+            flex-direction: column;
+            align-items: center;
+        }
+        .botao button{
+            margin-top: 5%;
+            border-radius: 100px;
+            width: 30vw;
+            height: 7vh;
+            border: none;
+            background-color: #FF5656;
+            font-size: 20px;
+            font-family: "Gotham Black";
+            color: #FFF;
+        }
+        .botao h1{
+            font-family: "Gotham Black";
+            font-size: 40px;
+        }
+        .botao img{
+            margin-top: 70px;
+            width: 100px;
+            height: 100px;
+        }
+        footer{
+            display: flex;
+            background-color: #4d4b4b;
+            text-align: center;
+            font-size: 10px;
+            color: #FFF;
+            font-family: "Gotham Black";
+            height: 4vh;
+            align-items: center;
+            justify-content: center;
+        
+        }
+        
+        
+        @media (max-width: 600px){
+        
+            header div p{
+                text-align: center;
+                font-size: 15px;
+                font-family: "Gotham Black";
+                
+            }
+            header>div>h1{
+                text-align: center;
+                color: #305DFF;
+                font-size: 20px;
+                font-family: "Gotham Black";
+                
+            }
+        
+        
+            .botao button{
+                margin-top: 5%;
+                border-radius: 100px;
+                width: 60vw;
+                height: 7vh;
+                border: none;
+                padding: 10px;
+                background-color: #FF5656;
+                font-size: 20px;
+                font-family: "Gotham Black";
+                color: #FFF;
+            }
+            .botao h1{
+                font-family: "Gotham Black";
+                font-size: 25px;
+            }
+            .botao img{
+                margin-top: 70px;
+                width: 100px;
+                height: 100px;
+            }
+        
+        
+        
+        
+        
+        }</style>
+  </head>
+  <body>
+    <header>
+        <div>
+            <h1>Olá Bruna, pronta para aprender algo novo sobre gatos?</h1>    
+        
+            <p id="fatodegato">
+                Ainda não foi gerado nenhum fato sobre gatos
+            </p>
+        </div>
+        <div class="custom-shape-divider-bottom-1725987139">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </header>
+    <div class="botao">
+        <h1>Fatos de Gatinhos</h1>
+        <button onclick="gerarFatos()">Clique aqui para gerar</button>
+
+        <img src="./assets/images/image.png" alt="">
+
+    </div>
+    <footer>
+        <h1>Copyright@VictorEmanuel</h1>
+
+
+
+        
+    </footer>
+
+
+
+
+
+
+
+
+    <script defer>
+        let cat  = document.getElementById('fatodegato')
+
+async function gerarFatos(){
+    const url = "https://catfact.ninja/fact"
+    try{
+        const response = await fetch(url)
+        if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+        }
+        
+        
+        const json = await response.json();
+
+        cat.textContent = json.fact
+
+
+
+    }
+    catch(e){
+        console.error(e.message);   
+    }
+
+
+
+}
+
+    </script>
+  </body>
+</html>
